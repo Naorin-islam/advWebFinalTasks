@@ -1,0 +1,311 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #eef2ff;
+  --background-color: #f8fafc;
+  --card-color: #ffffff;
+  --text-color: #1e293b;
+  --muted-color: #64748b;
+  --border-color: #cbd5e1;
+  --border-radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* HEADER */
+
+.dashboard-header {
+  background: var(--card-color);
+  padding: 30px 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  box-shadow: var(--shadow);
+}
+
+.dashboard-header h1 {
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: var(--muted-color);
+}
+
+.dashboard-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-header nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* DASHBOARD */
+
+.dashboard {
+  padding: 40px 50px;
+}
+
+/* SEARCH */
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 15px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  font-size: 16px;
+  outline: none;
+}
+
+.search-container input:focus {
+  border-color: var(--primary-color);
+}
+
+/* SORT */
+
+.sort-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.sort-controls button {
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #e2e8f0;
+}
+
+.sort-controls button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* GRID */
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+
+.student-card {
+  background: var(--card-color);
+
+  border-radius: var(--border-radius);
+
+  padding: 25px;
+
+  box-shadow: var(--shadow);
+
+  display: flex;
+  gap: 20px;
+
+  transition: transform 0.2s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+}
+
+.student-avatar {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.student-info {
+  flex: 1;
+}
+
+.student-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.student-id,
+.student-major {
+  color: var(--muted-color);
+  margin-bottom: 5px;
+}
+
+/* FAVORITE */
+
+.favorite-button {
+  border: none;
+  background: transparent;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  color: #94a3b8;
+}
+
+.favorite-button.favorite {
+  color: #f59e0b;
+}
+
+/* STATS */
+
+.student-stats {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.stat-badge {
+  background: var(--secondary-color);
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted-color);
+}
+
+.stat-value {
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+/* COURSES */
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.course-tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* LOADING */
+
+.loading {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+
+  border: 5px solid #e2e8f0;
+  border-top-color: var(--primary-color);
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* NO RESULTS */
+
+.no-results {
+  text-align: center;
+
+  padding: 60px;
+
+  background: var(--card-color);
+
+  border-radius: var(--border-radius);
+
+  box-shadow: var(--shadow);
+}
+
+.no-results p {
+  color: var(--muted-color);
+  margin-top: 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-header nav {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .dashboard {
+    padding: 25px 15px;
+  }
+
+  .dashboard-header {
+    padding: 25px 15px;
+  }
+
+  .student-card {
+    flex-direction: column;
+  }
+}
