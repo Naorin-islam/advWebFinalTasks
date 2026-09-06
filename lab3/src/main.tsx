@@ -7,16 +7,26 @@ import {
   ThemeProvider
 } from "./contexts/ThemeContext";
 
+import {
+  StudentProvider
+} from "./contexts/StudentContext";
+
 createRoot(
   document.getElementById("root")!
 ).render(
+
   <StrictMode>
 
     <ThemeProvider>
 
-      <App />
+      <StudentProvider>
+
+        <App />
+
+      </StudentProvider>
 
     </ThemeProvider>
 
   </StrictMode>
+
 );
