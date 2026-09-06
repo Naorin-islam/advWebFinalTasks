@@ -1,33 +1,631 @@
+/* ========================================
+   THEME VARIABLES
+======================================== */
+
 :root {
   --primary-color: #4f46e5;
   --secondary-color: #eef2ff;
+
   --background-color: #f8fafc;
   --card-color: #ffffff;
+
   --text-color: #1e293b;
   --muted-color: #64748b;
+
   --border-color: #cbd5e1;
 }
 
 [data-theme="dark"] {
   --primary-color: #818cf8;
   --secondary-color: #1e293b;
+
   --background-color: #0f172a;
   --card-color: #1e293b;
+
   --text-color: #f8fafc;
   --muted-color: #94a3b8;
+
   --border-color: #475569;
 }
 
-.theme-button {
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  background: var(--primary-color);
-  color: white;
+
+/* ========================================
+   APP
+======================================== */
+
+.app {
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s ease,
+    color 0.3s ease;
 }
 
-background: var(--background-color);
-background: var(--card-color);
-color: var(--text-color);
 
+/* ========================================
+   DASHBOARD HEADER
+======================================== */
+
+.dashboard-header {
+  background: var(--card-color);
+  border-bottom: 1px solid var(--border-color);
+
+  padding: 25px 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.dashboard-header p {
+  margin: 5px 0 0;
+  color: var(--muted-color);
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.dashboard-header nav {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.dashboard-header nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.dashboard-header nav a:hover {
+  color: var(--primary-color);
+}
+
+
+/* ========================================
+   THEME BUTTON
+======================================== */
+
+.theme-button {
+  border: none;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: var(--primary-color);
+
+  color: white;
+
+  font-weight: 600;
+}
+
+.theme-button:hover {
+  opacity: 0.9;
+}
+
+
+/* ========================================
+   STAT BADGE
+======================================== */
+
+.stat-badge {
+  background: var(--secondary-color);
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  text-align: center;
+}
+
+.stat-badge-label {
+  display: block;
+
+  font-size: 12px;
+
+  color: var(--muted-color);
+}
+
+.stat-badge-value {
+  font-size: 20px;
+
+  font-weight: bold;
+
+  color: var(--primary-color);
+}
+
+
+/* ========================================
+   DASHBOARD
+======================================== */
+
+.dashboard {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 30px 20px;
+}
+
+
+/* ========================================
+   ADD STUDENT SECTION
+======================================== */
+
+.add-student-section {
+  background: var(--card-color);
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  margin-bottom: 30px;
+
+  border: 1px solid var(--border-color);
+}
+
+.add-student-section h2 {
+  margin-top: 0;
+
+  margin-bottom: 20px;
+
+  color: var(--primary-color);
+}
+
+
+/* ========================================
+   STUDENT FORM
+======================================== */
+
+.student-form {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.form-group label {
+  font-weight: 600;
+
+  color: var(--text-color);
+}
+
+.form-group input {
+  padding: 12px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 8px;
+
+  background: var(--background-color);
+
+  color: var(--text-color);
+
+  font-size: 14px;
+
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: 2px solid var(--primary-color);
+
+  border-color: transparent;
+}
+
+
+/* ========================================
+   FORM ERROR
+======================================== */
+
+.error {
+  color: #dc2626;
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
+
+.submit-button {
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: var(--primary-color);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  font-size: 15px;
+}
+
+.submit-button:hover {
+  opacity: 0.9;
+}
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 10px;
+
+  background: var(--card-color);
+
+  color: var(--text-color);
+
+  font-size: 15px;
+}
+
+.search-container input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+
+/* ========================================
+   SORT
+======================================== */
+
+.sort-container {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+}
+
+.sort-container label {
+  font-weight: 600;
+
+  color: var(--text-color);
+}
+
+.sort-container select {
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--card-color);
+
+  color: var(--text-color);
+}
+
+
+/* ========================================
+   STUDENT GRID
+======================================== */
+
+.student-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+
+/* ========================================
+   STUDENT CARD
+======================================== */
+
+.student-card {
+  background: var(--card-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  display: flex;
+
+  gap: 20px;
+
+  transition: transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   STUDENT AVATAR
+======================================== */
+
+.student-avatar {
+  width: 80px;
+
+  height: 80px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+
+/* ========================================
+   STUDENT INFO
+======================================== */
+
+.student-info {
+  flex: 1;
+}
+
+.student-title {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+}
+
+.student-title h2 {
+  margin: 0;
+
+  color: var(--text-color);
+
+  font-size: 20px;
+}
+
+.student-id {
+  margin: 5px 0;
+
+  color: var(--muted-color);
+
+  font-size: 13px;
+}
+
+.student-major {
+  color: var(--primary-color);
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   FAVORITE BUTTON
+======================================== */
+
+.favorite-button {
+  border: none;
+
+  background: transparent;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  color: var(--muted-color);
+}
+
+.favorite-button.favorite {
+  color: #f59e0b;
+}
+
+
+/* ========================================
+   STUDENT STATS
+======================================== */
+
+.student-stats {
+  display: flex;
+
+  gap: 10px;
+
+  margin: 15px 0;
+}
+
+
+/* ========================================
+   COURSES
+======================================== */
+
+.courses {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 15px;
+}
+
+
+/* ========================================
+   COURSE TAG
+======================================== */
+
+.course-tag {
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   REMOVE BUTTON
+======================================== */
+
+.remove-button {
+  border: none;
+
+  padding: 8px 12px;
+
+  border-radius: 7px;
+
+  background: #dc2626;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 13px;
+}
+
+.remove-button:hover {
+  opacity: 0.9;
+}
+
+
+/* ========================================
+   NO RESULTS
+======================================== */
+
+.no-results {
+  text-align: center;
+
+  padding: 50px;
+
+  background: var(--card-color);
+
+  border-radius: 16px;
+
+  border: 1px solid var(--border-color);
+}
+
+.no-results h2 {
+  color: var(--text-color);
+}
+
+.no-results p {
+  color: var(--muted-color);
+}
+
+
+/* ========================================
+   SUCCESS NOTIFICATION
+======================================== */
+
+.success-notification {
+  position: fixed;
+
+  top: 25px;
+
+  right: 25px;
+
+  background: #16a34a;
+
+  color: white;
+
+  padding: 15px 20px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
+  z-index: 1000;
+
+  font-weight: 600;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header nav {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .student-form {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    padding: 20px;
+  }
+
+  .dashboard-header nav {
+    width: 100%;
+  }
+
+  .student-card {
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .dashboard {
+    padding: 20px 12px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .dashboard-header nav {
+    flex-wrap: wrap;
+  }
+
+  .student-stats {
+    flex-wrap: wrap;
+  }
+}
